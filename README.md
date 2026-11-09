@@ -6,7 +6,7 @@
 
 - 原项目地址：https://github.com/CXRunfree/Autovisor
 - 原作者：**PengChengxu**
-- 许可证：**MIT License**（原文见本目录下的 `LICENSE`，请勿删除）
+- 许可证：**MIT License**
 
 ## 二、为什么要改
 
@@ -63,22 +63,24 @@
 
 ## 五、运行方式
 
-1. 系统要求 Windows 10 及以上。
-2. 用文本编辑器打开 `config.ini`，填写账号、密码和课程链接（也可以留空，启动后手动登录并手动进入课程）。
-3. 双击 `Autovisor.exe` 运行。
-4. 首次运行需要登录，登录状态保存在 `data\cookies.json`，**这个文件等同于免密登录凭证，不要发给别人**。
+1. 请确保系统为 Windows 10 及以上.
+2. 发行版文件夹内自带 **config.ini** (可能没显示 `.ini` 后缀名), 使用 **文本编辑器** 打开.
+3. 根据文件内的注释, 填写配置文件:
+   - 默认启动系统自带的 Edge 浏览器；
+   - 文件里的 **EXE_PATH 项** 用于自定义浏览器路径, 需要精确到**浏览器可执行文件的位置**, 可以保持默认不填；
+   - 确认 **保存修改** 后再退出.
+4. 注意事项:
+   - **`config.ini` 配置项不需要加引号.**
+   - **如果需要修改下载镜像源, 请编辑 `data/mirrors.json`**
+5. 运行 **Autovisor.exe**, 会自动打开浏览器, 进入网课界面后就能自动刷课了!
 
-### 目录说明
+   (如果未设置 **enableAutoCaptcha=True**, 则需要**手动完成**登录时的滑块验证)
 
-| 文件 / 目录 | 说明 |
-| --- | --- |
-| `Autovisor.exe` | 主程序 |
-| `internal\` | 程序运行所需的 Python 运行时和依赖，不可删除 |
-| `packages\` | OpenCV / NumPy 等可选组件 |
-| `resources\` | 图标、脚本等资源 |
-| `config.ini` | 配置文件（账号、课程链接、播放参数） |
-| `data\` | 运行数据：`cookies.json`（登录凭证）、`course_state.json`（完成记录）、`mirrors.json`，**分享前请删掉 `data\cookies.json` 和 `data\course_state.json`** |
-| `logs\` | 运行日志，程序启动后自动创建，分享前请清空 |
+**发行版目录说明:**
+
+- `resources/`: 图片、脚本等程序资源.
+- `packages/`: 自动下载的 NumPy、OpenCV 等运行时依赖.
+- `data/`: 登录 Cookies、镜像源配置, 以及本版新增的完成记录 `course_state.json`.
 
 ## 六、免责声明
 
